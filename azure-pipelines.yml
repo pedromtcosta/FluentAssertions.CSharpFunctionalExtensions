@@ -31,8 +31,12 @@ steps:
     projects: '**/*Spec/*.csproj'
     arguments: '--configuration $(buildConfiguration)'
   
-- script: dotnet pack src/FluentAssertions.CSharpFunctionalExtensions/FluentAssertions.CSharpFunctionalExtensions.csproj /p:PackageVersion=$(version) --api-key oy2piqgcfkvy4o2otu7awd4iw43hzabu3dp4x3yyk6ljoy
+- script: dotnet pack src/FluentAssertions.CSharpFunctionalExtensions/FluentAssertions.CSharpFunctionalExtensions.csproj /p:PackageVersion=$(version)
   displayName: 'Pack'
+
+- task: NuGetAuthenticate@0
+  inputs:
+    nuGetServiceConnections: 'NugetOrg'
 
 - task: NuGetCommand@2
   displayName: 'Publish'
