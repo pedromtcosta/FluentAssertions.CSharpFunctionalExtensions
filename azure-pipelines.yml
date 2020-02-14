@@ -11,6 +11,7 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
+  version: '0.0.1'
 
 steps:
 
@@ -29,3 +30,15 @@ steps:
     command: test
     projects: '**/*Spec/*.csproj'
     arguments: '--configuration $(buildConfiguration)'
+  
+- script: dotnet pack /p:PackageVersion=$(version)  # define version variable elsewhere in your pipeline
+- task: NuGetAuthenticate@0
+  inputs:
+    nuGetServiceConnections: 'NugetOrg'
+- task: NuGetCommand@2
+  inputs:
+    command: push
+    nuGetFeedType: external
+    publishFeedCredentials: 'NugetOrg'
+    versioningScheme: byEnvVar
+    versionEnvVar: version
