@@ -24,6 +24,7 @@ steps:
 
 # Run tests
 - task: DotNetCoreCLI@2
+  displayName: 'run tests'
   inputs:
     command: test
     projects: '**/*Spec/*.csproj'
