@@ -9,10 +9,6 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
-variables:
-  buildConfiguration: 'Release'
-  version: '0.0.1'
-
 steps:
 
 # Build the project
@@ -36,23 +32,3 @@ steps:
     command: test
     projects: '**/*Spec/*.csproj'
     arguments: '--configuration $(buildConfiguration)'
-  
-- task: DotNetCoreCLI@2
-  displayName: 'dotnet pack'
-  inputs:
-    command: pack
-    packagesToPack: '**/src/FluentAssertions.CSharpFunctionalExtensions/FluentAssertions.CSharpFunctionalExtensions.csproj'
-    versioningScheme: byEnvVar
-    versionEnvVar: '$(GitVersion.SemVer)'
-
-- task: NuGetAuthenticate@0
-  inputs:
-    nuGetServiceConnections: 'NugetOrg'
-
-- task: NuGetCommand@2
-  displayName: 'NuGet push'
-  inputs:
-    command: push
-    packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
-    nuGetFeedType: external
-    publishFeedCredentials: NugetOrg
