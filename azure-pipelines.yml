@@ -16,6 +16,12 @@ variables:
 steps:
 
 # Build the project
+- task: gitversion/setup@0
+  inputs:
+    versionSpec: '5.*'
+
+- task: gitversion/execute@0
+
 - task: DotNetCoreCLI@2
   displayName: 'dotnet build'
   inputs:
@@ -33,13 +39,6 @@ steps:
   
 - script: dotnet pack src/FluentAssertions.CSharpFunctionalExtensions/FluentAssertions.CSharpFunctionalExtensions.csproj /p:PackageVersion=$(version)
   displayName: 'Pack'
-
-- task: gitversion/setup@0
-  inputs:
-    versionSpec: '5.*'
-
-- task: gitversion/execute@0
-  inputs:
 
 - task: NuGetAuthenticate@0
   inputs:
