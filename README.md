@@ -1,3 +1,5 @@
+[NuGet](https://www.nuget.org/packages/FluentAssertions.CSharpFunctionalExtensions/)
+
 # FluentAssertions.CSharpFunctionalExtensions
 
 This is a small library for using [FluentAssertions](https://github.com/fluentassertions/fluentassertions) on the types provided on the [CSharpFunctionalExtensions](https://github.com/vkhorikov/CSharpFunctionalExtensions) library.
