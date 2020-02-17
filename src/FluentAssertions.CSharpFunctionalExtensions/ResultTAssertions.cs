@@ -4,9 +4,9 @@ using System;
 
 namespace FluentAssertions.CSharpFunctionalExtensions
 {
-    public class ResultAssertions : BaseResultAssertions<Result>
+    public class ResultTAssertions<T> : BaseResultAssertions<Result<T>>
     {
-        public ResultAssertions(Result subject) : base(subject)
+        public ResultTAssertions(Result<T> subject) : base(subject)
         {
         }
 
