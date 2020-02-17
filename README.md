@@ -1,4 +1,5 @@
-[NuGet](https://www.nuget.org/packages/FluentAssertions.CSharpFunctionalExtensions/)
+[![Build Status](https://dev.azure.com/pedrotimoteocosta/FluentAssertions.CSharpFunctionalExtensions/_apis/build/status/FluentAssertions.CSharpFunctionalExtensions?branchName=master)](https://dev.azure.com/pedrotimoteocosta/FluentAssertions.CSharpFunctionalExtensions/_build/latest?definitionId=1&branchName=master)
+[![Nuget downloads](https://img.shields.io/nuget/v/FluentAssertions.CSharpFunctionalExtensions.svg)](https://www.nuget.org/packages/FluentAssertions.CSharpFunctionalExtensions/)
 
 # FluentAssertions.CSharpFunctionalExtensions
 
