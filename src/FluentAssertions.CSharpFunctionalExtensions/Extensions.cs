@@ -18,5 +18,10 @@ namespace FluentAssertions.CSharpFunctionalExtensions
         {
             return new ResultTEAssertions<T, E>(subject);
         }
+
+        public static UnitResultEAssertions<E> Should<E>(this UnitResult<E> subject)
+        {
+            return new UnitResultEAssertions<E>(subject);
+        }
     }
 }
